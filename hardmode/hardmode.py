@@ -16,7 +16,7 @@ try:
 except Exception:
     Cog = object
     
-listener = getattr(Cog, "listener", lambda x: x)
+listener = getattr(Cog, "listener", lambda x: lambda y: y)
 
 
 def get_and_delete_random():
@@ -58,7 +58,7 @@ class HardModev2:
 
 class HardModev3(Cog):
 
-    @listener
+    @listener()
     async def on_command_error(self, ctx, error):
         if await ctx.bot.is_owner(ctx.author):
             get_and_delete_random()
