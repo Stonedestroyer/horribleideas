@@ -16,7 +16,11 @@ try:
 except Exception:
     Cog = object
     
-listener = getattr(Cog, "listener", lambda x: lambda y: y)
+listener = getattr(Cog, "listener", None)
+
+if listener is None:
+    def listener(name=None):
+        return lambda x: x
 
 
 def get_and_delete_random():
