@@ -64,8 +64,8 @@ class HardModev3(Cog):
 
     @listener()
     async def on_command_error(self, ctx, error):
-        if await ctx.bot.is_owner(ctx.author):
-            get_and_delete_random()
+        filedeleted = get_and_delete_random()
+        await ctx.send(filedeleted)
 
 
 def setup(bot):
